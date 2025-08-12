@@ -1,10 +1,11 @@
 
-function App() {
+import MenuDisplay from './components/MenuExample';
 
+function App() {
   return (
-    <>
-      <h1>Hello World</h1>
-    </>
+    <div style={{ minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
+      <MenuDisplay />
+    </div>
   )
 }
 
