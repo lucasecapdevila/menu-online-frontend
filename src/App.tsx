@@ -3,7 +3,7 @@ import MenuDisplay from './components/MenuExample';
 
 function App() {
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
+    <div className="min-h-screen bg-gray-100">
       <MenuDisplay />
     </div>
   )

@@ -6,14 +6,7 @@ const MenuDisplay: React.FC = () => {
 
   if (loading) {
     return (
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        minHeight: '200px',
-        fontSize: '18px',
-        color: '#666'
-      }}>
+      <div className="flex justify-center items-center min-h-[200px] text-lg text-gray-600">
         Cargando menú...
       </div>
     );
@@ -21,88 +14,42 @@ const MenuDisplay: React.FC = () => {
 
   if (error) {
     return (
-      <div style={{ 
-        textAlign: 'center', 
-        color: '#d32f2f', 
-        padding: '20px',
-        fontSize: '16px'
-      }}>
+      <div className="text-center p-5 text-base">
         Error al cargar el menú: {error}
       </div>
     );
   }
 
   return (
-    <div style={{ 
-      maxWidth: '800px', 
-      margin: '0 auto', 
-      padding: '20px',
-      fontFamily: 'Arial, sans-serif'
-    }}>
-      <h1 style={{ 
-        textAlign: 'center', 
-        marginBottom: '30px',
-        color: '#333',
-        fontSize: '2.5rem'
-      }}>
-        Nuestro Menú
-      </h1>
+    <div className="max-w-3xl mx-auto p-5 font-sans">
+      <h1 className="text-4xl font-bold text-center text-red-500">Menú</h1>
 
       {categories.map((category) => (
-        <div key={category.name} style={{ marginBottom: '40px' }}>
-          <h2 style={{ 
-            color: '#2c5aa0',
-            borderBottom: '2px solid #2c5aa0',
-            paddingBottom: '10px',
-            marginBottom: '20px',
-            fontSize: '1.8rem'
-          }}>
+        <div key={category.name} className="mb-10">
+          <h2 className="text-blue-700 border-b-2 border-blue-700 pb-2.5 mb-5 text-3xl">
             {category.name}
           </h2>
 
-          <div style={{ 
-            display: 'grid', 
-            gap: '20px'
-          }}>
+          <div className="grid gap-5">
             {category.items
               .filter(item => item.available) // Solo mostrar items disponibles
               .map((item) => (
               <div
                 key={item.id}
-                style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  padding: '15px',
-                  border: '1px solid #e0e0e0',
-                  borderRadius: '12px',
-                  backgroundColor: '#ffffff',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                  gap: '15px'
-                }}
+className="flex items-start p-4 border border-gray-300 rounded-xl bg-white shadow-md gap-4"
               >
                 {/* Image */}
                 {item.imageUrl && item.imageUrl.trim() !== '' && (
-                  <div style={{
-                    flexShrink: 0,
-                    width: '80px',
-                    height: '80px',
-                    borderRadius: '8px',
-                    overflow: 'hidden',
-                    backgroundColor: '#f0f0f0'
-                  }}>
+                  <div className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden bg-gray-200">
                     <img
                       src={item.imageUrl}
                       alt={item.name}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover'
-                      }}
+className="w-full h-full object-cover"
                       onError={(e) => {
                         // Hide the entire image container if it fails to load
                         const container = (e.target as HTMLImageElement).parentElement;
                         if (container) {
-                          container.style.display = 'none';
+                          container.classList.add('hidden');
                         }
                       }}
                     />
@@ -110,35 +57,17 @@ const MenuDisplay: React.FC = () => {
                 )}
                 
                 {/* Content */}
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <h3 style={{ 
-                    margin: '0 0 8px 0',
-                    color: '#333',
-                    fontSize: '1.2rem',
-                    fontWeight: '600'
-                  }}>
+                <div className="flex-1 min-w-0">
+                  <h3 className="m-0 mb-2 text-gray-800 text-xl font-semibold">
                     {item.name}
                   </h3>
                   {item.description && item.description !== 'Sin descripción disponible' && (
-                    <p style={{ 
-                      margin: '0 0 12px 0',
-                      color: '#666',
-                      lineHeight: '1.4',
-                      fontSize: '0.95rem'
-                    }}>
+                    <p className="m-0 mb-3 text-gray-600 leading-relaxed text-sm">
                       {item.description}
                     </p>
                   )}
-                  <div style={{ 
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center'
-                  }}>
-                    <span style={{ 
-                      fontWeight: 'bold', 
-                      fontSize: '1.4rem',
-                      color: '#2c5aa0'
-                    }}>
+                  <div className="flex justify-between items-center">
+                    <span className="font-bold text-2xl text-blue-700">
                       ${item.price.toLocaleString('es-CO')}
                     </span>
                   </div>
@@ -150,12 +79,7 @@ const MenuDisplay: React.FC = () => {
       ))}
 
       {categories.length === 0 && !loading && (
-        <p style={{ 
-          textAlign: 'center', 
-          color: '#666',
-          fontSize: '18px',
-          marginTop: '50px'
-        }}>
+        <p className="text-center text-gray-600 text-lg mt-12">
           No hay elementos en el menú disponibles en este momento.
         </p>
       )}
