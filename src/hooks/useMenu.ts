@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { getCategories } from '../services/menuService';
-import type { MenuCategory, UseMenuReturn } from '../index.types';
+import { useState, useEffect } from "react";
+import { getCategories } from "../services/menuService";
+import type { MenuCategory, UseMenuReturn } from "../index.types";
 
 // Custom hook for menu data with custom category ordering
 export const useMenu = (): UseMenuReturn => {
@@ -16,7 +16,7 @@ export const useMenu = (): UseMenuReturn => {
       const data = await getCategories();
       setCategories(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error al cargar el menú');
+      setError(err instanceof Error ? err.message : "Error al cargar el menú");
     } finally {
       setLoading(false);
     }

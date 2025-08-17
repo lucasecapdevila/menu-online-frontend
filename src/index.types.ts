@@ -22,7 +22,6 @@ export interface ProcessedMenuItem {
   price: number;
   description: string;
   imageUrl: string;
-  available: boolean;
   stock: number;
 }
 
@@ -91,10 +90,10 @@ export interface CategorySectionProps {
 // ============================================================================
 
 // Loading states
-export type LoadingState = 'idle' | 'loading' | 'success' | 'error';
+export type LoadingState = "idle" | "loading" | "success" | "error";
 
 // Sort options for menu items
-export type SortOption = 'name' | 'price-asc' | 'price-desc' | 'category';
+export type SortOption = "name" | "price-asc" | "price-desc" | "category";
 
 // Filter options
 export interface MenuFilters {
