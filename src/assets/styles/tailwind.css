@@ -23,6 +23,19 @@
     @apply font-montserrat;
     @apply bg-surface;
   }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-surface;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-brand-300;
+    border-radius: 5px;
+  }
 }
 
 @custom-variant dark (&:where(.dark, .dark *));

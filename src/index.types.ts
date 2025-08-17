@@ -10,6 +10,7 @@ export interface MenuItem {
   precio: string;
   descripcion: string;
   img: string;
+  stock: string;
   _rowNumber: number;
 }
 
@@ -22,6 +23,7 @@ export interface ProcessedMenuItem {
   description: string;
   imageUrl: string;
   available: boolean;
+  stock: number;
 }
 
 // Menu category containing processed items

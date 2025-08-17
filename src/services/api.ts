@@ -24,18 +24,15 @@ apiClient.interceptors.response.use(
   }
 );
 
-// Simplified API service class - only GET requests for menu viewing
-export class ApiService {
-  // GET request
-  static async get<T>(endpoint: string): Promise<T> {
-    try {
-      const response = await apiClient.get<T>(endpoint);
-      return response.data;
-    } catch (error) {
-      console.error(`GET ${endpoint} failed:`, error);
-      throw error;
-    }
+// GET request function - for menu viewing
+export const get = async <T>(endpoint: string): Promise<T> => {
+  try {
+    const response = await apiClient.get<T>(endpoint);
+    return response.data;
+  } catch (error) {
+    console.error(`GET ${endpoint} failed:`, error);
+    throw error;
   }
-}
+};
 
 export default apiClient;
