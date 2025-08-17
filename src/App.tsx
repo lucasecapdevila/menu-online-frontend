@@ -1,12 +1,11 @@
-
-import MenuDisplay from './components/MenuExample';
+import MenuDisplay from "./components/MenuExample";
 
 function App() {
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
+    <div className="min-h-screen bg-surface">
       <MenuDisplay />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-montserrat: "Montserrat", sans-serif;
+
+  --color-brand-50: #ffa791;
+  --color-brand-100: #ff967b;
+  --color-brand-200: #ff8465;
+  --color-brand-300: #ff724e;
+  --color-brand-400: #ff6138;
+  --color-brand-500: #ff5023;
+  --color-brand-600: #e5481f;
+  --color-brand-700: #cc401c;
+  --color-brand-800: #b23818;
+  --color-brand-900: #993015;
+  --color-brand-950: #7f2811;
+
+  --color-surface: #f4f4f4;
+}
+
+@layer base {
+  html {
+    @apply font-montserrat;
+    @apply bg-surface;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-surface;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-brand-300;
+    border-radius: 5px;
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
