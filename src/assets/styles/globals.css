@@ -17,3 +17,8 @@ h1, h2, h3, h4, h5, h6 {
 p, span, div, button, input, textarea, select {
   font-family: 'Montserrat', sans-serif;
 }
+
+/* Hide scrollbar for horizontal category scroll */
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
